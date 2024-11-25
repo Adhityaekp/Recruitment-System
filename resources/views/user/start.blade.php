@@ -7,23 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Document</title>
-    <style>
-        .btn-primary {
-            background-color: #7C0000;
-            border: none;
-            color: #fafafa;
-            margin-top: 20px;
-        }
-
-        .btn-primary:hover {
-            background-color: #7c0000b9;
-            outline: none;
-            border-color: #7C0000;
-            box-shadow: 0 0 4px hsla(0, 100%, 24%, 0.5);
-            color: #fafafa;
-        }
-    </style>
 </head>
 
 <body class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
@@ -42,7 +27,7 @@
                 aspek kepribadian dan keterampilan kognitif Anda, yang akan menjadi bagian dari syarat kelulusan dalam
                 seleksi Mechanical Class. Hasil dari psikotest ini akan membantu kami memastikan kesiapan Anda untuk
                 mengikuti pelatihan dan memaksimalkan potensi yang dimiliki.</p>
-            <button type="button" class="btn btn-primary px-5 py-2" data-bs-toggle="modal"
+            <button type="button" class="btn btn-masuk px-5 py-2" data-bs-toggle="modal" style="margin-top: 20px"
                 data-bs-target="#termsModal">Mulai</button>
         </div>
 
@@ -69,22 +54,31 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="cameraButton" type="button" class="btn btn-success" disabled>Cek Kamera</button>
+                        <button id="backButton" type="button" class="btn button-back" data-bs-dismiss="modal"
+                            aria-label="Close">Kembali</button>
+                        <button id="cameraButton" type="button" class="btn btn-masuk" onclick="goToCameraPage()"
+                            disabled>Cek
+                            Kamera</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
-        <script>
-            function toggleCameraButton() {
-                const checkbox = document.getElementById('acceptTerms');
-                const cameraButton = document.getElementById('cameraButton');
-                cameraButton.disabled = !checkbox.checked;
-            }
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script>
+        function goToCameraPage() {
+            window.location.href = '/user/checkcam';
+        }
+
+        function toggleCameraButton() {
+            const checkbox = document.getElementById('acceptTerms');
+            const cameraButton = document.getElementById('cameraButton');
+            cameraButton.disabled = !checkbox.checked;
+        }
+    </script>
 </body>
 
 </html>

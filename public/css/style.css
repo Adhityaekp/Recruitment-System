@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* ==============================================
+   LOGIN STYLES
+   ============================================== */
+
+.card {
+    background-color: #fafafa;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+input.form-control {
+    background-color: rgba(222, 222, 222, 0.5);
+    border: none;
+    color: hsla(0, 0%, 0%, 0.5);
+}
+
+input.form-control:focus {
+    background-color: rgba(222, 222, 222, 0.7);
+    outline: none;
+    border-color: #7c0000;
+    box-shadow: 0 0 4px hsla(0, 100%, 24%, 0.5);
+}
+
+/* ==============================================
+   HEADER COMPONENT STYLES
+   ============================================== */
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trainee-info {
+    text-align: right;
+}
+
+.trainee-info h5 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.trainee-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ==============================================
+   Check Kamera
+   ============================================== */
+
+.camera-container {
+    width: 100%;
+    max-width: 1239px;
+    display: flex;
+    /* gap: 20px; */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.camera-preview {
+    flex: 3;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 100px;
+}
+
+.info-text {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.camera-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.camera-controls button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    background-color: #c18134;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.camera-controls button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.camera-controls button i {
+    font-size: 20px;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-section {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+.info-section h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-masuk {
+    background-color: #7c0000;
+    border: none;
+    color: #fafafa;
+}
+
+.btn-masuk:hover {
+    background-color: #7c0000b9;
+    outline: none;
+    box-shadow: 0 0 4px hsla(0, 100%, 24%, 0.5);
+    color: #fafafa;
+}
+
+.button-back {
+    background-color: none;
+    border: 1px solid #7c0000;
+    color: #7c0000;
+}
+
+.button-back:hover {
+    background-color: #7c0000;
+    outline: none;
+    box-shadow: 0 0 4px hsla(0, 100%, 24%, 0.5);
+    color: #fafafa;
+}

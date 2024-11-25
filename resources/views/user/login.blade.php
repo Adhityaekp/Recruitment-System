@@ -8,6 +8,7 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
         body {
             background-image: url('/img/bglogin.jpg');
@@ -18,40 +19,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .card {
-            background-color: #fafafa;
-            border-radius: 20px;
-            padding: 50px;
-        }
-
-        input.form-control {
-            background-color: rgba(222, 222, 222, 0.5);
-            border: none;
-            color: hsla(0, 0%, 0%, 0.5);
-        }
-
-        input.form-control:focus {
-            background-color: rgba(222, 222, 222, 0.7);
-            outline: none;
-            border-color: #7C0000;
-            box-shadow: 0 0 4px hsla(0, 100%, 24%, 0.5);
-        }
-
-        button.btn-primary {
-            background-color: #7C0000;
-            border: none;
-            color: #fafafa;
-            margin-top: 35px;
-        }
-
-        button.btn-primary:hover {
-            background-color: #7c0000b9;
-            outline: none;
-            border-color: #7C0000;
-            box-shadow: 0 0 4px hsla(0, 100%, 24%, 0.5);
-            color: #fafafa;
         }
     </style>
 </head>
@@ -79,7 +46,7 @@
                     </div>
 
                     <div class="d-grid" style="justify-content: center;">
-                        <button type="button" class="btn btn-primary" style="width: 111px; height: auto;"
+                        <button type="button" class="btn btn-masuk" style="width: 111px; height: auto;"
                             onclick="window.location.href='/user/start';">Masuk</button>
                     </div>
                 </form>
