@@ -13,7 +13,7 @@
 </head>
 
 <body class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
-    <x-header name="Nama Trainee" class="Kelas Trainee" profileImage="/path/to/image.jpg" />
+    <x-header name="Nama Trainee" class="Kelas Trainee" profileImage="/img/user.jpg" />
 
     <div class="camera-container">
         <div class="camera-preview">
@@ -29,8 +29,8 @@
 
         <div class="info-section">
             <h1>Siap untuk memulai test?</h1>
-            <button class="btn btn-masuk w-75 mb-3 py-2 fs-5"
-                onclick="window.location.href='/user/soal';">Masuk</button>
+            <button id="masukButton" class="btn btn-masuk w-75 mb-3 py-2 fs-5"
+                onclick="window.location.href='/user/subtest1';" disabled>Masuk</button>
             <button class="btn button-back w-50" onclick="window.location.href='/user/start';">Kembali</button>
         </div>
     </div>
@@ -38,6 +38,7 @@
     <script>
         const cameraStream = document.getElementById('cameraStream');
         const startCameraButton = document.getElementById('startCamera');
+        const masukButton = document.getElementById('masukButton');
         let stream = null;
 
         async function startCamera() {
@@ -47,6 +48,7 @@
                 });
                 cameraStream.srcObject = stream;
                 startCameraButton.disabled = true;
+                masukButton.disabled = false; // Enable the "Masuk" button when the camera is active
             } catch (error) {
                 alert('Kamera tidak dapat diakses. Pastikan izin sudah diberikan.');
                 console.error(error);
