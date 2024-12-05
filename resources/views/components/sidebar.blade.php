@@ -15,34 +15,34 @@
                 <li class="nav-item mb-3">
                     <a class="nav-link menu-nav-link" href="#" id="summaryTest" data-bs-toggle="collapse"
                         data-bs-target="#userMenu" aria-expanded="false" onclick="toggleChevron(this)">
-                        <i class="bi bi-file-earmark-text"></i> <span class="ms-2">Summary Test <i
-                                class="bi bi-chevron-right"></i></span>
+                        <i class="bi bi-file-earmark-text" style="font-size: 12px;"></i> <span class="ms-2">Summary Test <i
+                                class="bi bi-chevron-right" style="font-size: 12px;"></i></span>
                     </a>
                     <div class="collapse" id="userMenu">
-                        <ul class="nav flex-column ms-3">
+                        <ul class="nav flex-column ms-2">
                             <li class="nav-item mb-2">
                                 <a class="nav-link test-nav-link" href="/admin/dashboard" id="allSummary">
-                                    <span class="ms-2"><i class="bi bi-dot"></i> Semua Summary</span>
+                                    <i class="bi bi-dot"></i> Semua Summary</span>
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
                                 <a class="nav-link test-nav-link" href="#" id="tkdV">
-                                    <span class="ms-2"><i class="bi bi-dot"></i> TKD V</span>
+                                    <i class="bi bi-dot"></i> TKD V</span>
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
                                 <a class="nav-link test-nav-link" href="#" id="iqTest">
-                                    <span class="ms-2"><i class="bi bi-dot"></i> IQ Test</span>
+                                    <i class="bi bi-dot"></i> IQ Test</span>
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
                                 <a class="nav-link test-nav-link" href="#" id="papikostik">
-                                    <span class="ms-2"><i class="bi bi-dot"></i> Papikostik</span>
+                                    <i class="bi bi-dot"></i> Papikostik</span>
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
                                 <a class="nav-link test-nav-link" href="#" id="LoC">
-                                    <span class="ms-2"><i class="bi bi-dot"></i> Locus of Control</span>
+                                    <i class="bi bi-dot"></i> Locus of Control</span>
                                 </a>
                             </li>
                         </ul>
@@ -51,6 +51,11 @@
                 <li class="nav-item mb-3">
                     <a class="nav-link menu-nav-link" href="/admin/trainee" id="trainee">
                         <i class="bi bi-people"></i> <span class="ms-2">Trainee</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link menu-nav-link" href="/admin/question" id="trainee">
+                        <i class="bi bi-folder-plus"></i> <span class="ms-2">Question</span>
                     </a>
                 </li>
                 <li class="nav-item mb-3">
