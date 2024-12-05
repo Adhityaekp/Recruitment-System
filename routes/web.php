@@ -43,6 +43,10 @@ Route::get('/admin/trainee', function () {
     return view('admin.trainee');
 })->name('admin.trainee');
 
+Route::get('/admin/question', function () {
+    return view('admin.question');
+})->name('admin.question');
+
 Route::get('/admin/profil', function () {
     return view('admin.profil');
 })->name('admin.profil');
@@ -64,6 +68,14 @@ Route::get('/user/start', function () {
 Route::get('/user/checkcam', function () {
     return view('user.checkcam');
 })->name('user.checkcam');
+
+Route::get('/user/subtest1', function () {
+    return view('user.subtest1');
+})->name('user.subtest1');
+
+Route::get('/user/subtest2', function () {
+    return view('user.subtest2');
+})->name('user.subtest2');
 
 Route::get('/user/soal', function () {
     return view('user.soal');
