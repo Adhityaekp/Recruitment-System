@@ -77,6 +77,14 @@ Route::get('/user/subtest2', function () {
     return view('user.subtest2');
 })->name('user.subtest2');
 
+Route::get('/user/subtest3', function () {
+    return view('user.subtest3');
+})->name('user.subtest3');
+
+Route::get('/user/subtest4', function () {
+    return view('user.subtest4');
+})->name('user.subtest4');
+
 Route::get('/user/soal', function () {
     return view('user.soal');
 })->name('user.soal');
@@ -84,6 +92,14 @@ Route::get('/user/soal', function () {
 Route::get('/user/soal2', function () {
     return view('user.soal2');
 })->name('user.soal2');
+
+Route::get('/user/soal3', function () {
+    return view('user.soal3');
+})->name('user.soal3');
+
+Route::get('/user/soal4', function () {
+    return view('user.soal4');
+})->name('user.soal4');
 
 Route::get('/user/end', function () {
     return view('user.end');

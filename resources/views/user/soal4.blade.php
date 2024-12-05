@@ -21,7 +21,7 @@
     <div class="question-container mt-4">
         <div class="question-header d-flex justify-content-between align-items-center mb-4">
             <div class="left-header">
-                <h4 class="title-question">Psikotest - Sub Bab 1</h4>
+                <h4 class="title-question">Psikotest - IQ Test</h4>
                 <p class="title-time text-muted">Rabu, 10 November 2024</p>
             </div>
             <div class="right-header">
@@ -40,38 +40,32 @@
         <video id="webcam" autoplay muted playsinline class="webcam-video"></video>
 
         <form>
-            <p class="question">Untuk membuat sebuah looping di Golang, maka ada 3 statement penting yaitu</p>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question" id="option1">
-                <label class="form-check-label" for="option1">
-                    Boolean, Numeric, String.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question" id="option2">
-                <label class="form-check-label" for="option2">
-                    Init, condition, post.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question" id="option3">
-                <label class="form-check-label" for="option3">
-                    Init, looping, post.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question" id="option4">
-                <label class="form-check-label" for="option4">
-                    Truthy, falsy, init.
-                </label>
+            <p class="question">Berapa hasil dari 15 x 3?</p>
+            <div class="form-group">
+                <input type="number" class="form-control input-answer" placeholder="Ketik jawaban Anda di sini..."
+                    min="0" required>
             </div>
         </form>
 
         <div class="nav-buttons">
-            <button class="btn btn-back"><i class="bi bi-chevron-left"></i> Sebelumnya</button>
-            <button class="btn btn-next" onclick="window.location.href='/user/subtest2'">
-                Selanjutnya <i class="bi bi-chevron-right"></i>
+            <button class="btn btn-back" onclick="window.location.href='/user/soal'"><i class="bi bi-chevron-left"></i>
+                Sebelumnya</button>
+            <button class="btn btn-next" id="btnFinish">
+                Selesai <i class="bi bi-cursor-fill"></i>
             </button>
+        </div>
+
+        <div id="confirmationPopup" class="popup-overlay">
+            <div class="popup-content">
+                <img src="/img/submit.png" alt="Icon" class="popup-image">
+
+                <h3>Apakah Anda yakin ingin menyelesaikan tes ini?</h3>
+                <p>Pastikan Anda telah menjawab semua pertanyaan. Jawaban yang telah dikirim tidak dapat diubah.</p>
+                <div class="popup-buttons">
+                    <button class="btn button-back" id="btnCancel">Kembali</button>
+                    <button class="btn btn-masuk" id="btnConfirm">Selesai</button>
+                </div>
+            </div>
         </div>
     </div>
 

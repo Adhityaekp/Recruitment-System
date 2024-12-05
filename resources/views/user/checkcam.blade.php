@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Check Camera</title>
+    <style>
+        #masukButton:disabled {
+            background-color: #d6d6d6;
+            color: #a3a3a3;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
@@ -48,7 +55,7 @@
                 });
                 cameraStream.srcObject = stream;
                 startCameraButton.disabled = true;
-                masukButton.disabled = false; // Enable the "Masuk" button when the camera is active
+                masukButton.disabled = false;
             } catch (error) {
                 alert('Kamera tidak dapat diakses. Pastikan izin sudah diberikan.');
                 console.error(error);

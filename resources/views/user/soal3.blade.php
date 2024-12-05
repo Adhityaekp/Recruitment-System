@@ -40,36 +40,38 @@
         <video id="webcam" autoplay muted playsinline class="webcam-video"></video>
 
         <form>
-            <p class="question">Untuk membuat sebuah looping di Golang, maka ada 3 statement penting yaitu</p>
+            <p class="question">
+                <img src="/img/soal.png" alt="Soal Gambar" style="width: 100%; max-width: 400px;">
+            </p>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="question" id="option1">
                 <label class="form-check-label" for="option1">
-                    Boolean, Numeric, String.
+                    <img src="/img/A.png" alt="Jawaban 1" style="width: 100%; max-width: 200px;">
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="question" id="option2">
                 <label class="form-check-label" for="option2">
-                    Init, condition, post.
+                    <img src="/img/B.png" alt="Jawaban 2" style="width: 100%; max-width: 200px;">
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="question" id="option3">
                 <label class="form-check-label" for="option3">
-                    Init, looping, post.
+                    <img src="/img/C.png" alt="Jawaban 3" style="width: 100%; max-width: 200px;">
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="question" id="option4">
                 <label class="form-check-label" for="option4">
-                    Truthy, falsy, init.
+                    <img src="/img/D.png" alt="Jawaban 4" style="width: 100%; max-width: 200px;">
                 </label>
             </div>
         </form>
 
         <div class="nav-buttons">
             <button class="btn btn-back"><i class="bi bi-chevron-left"></i> Sebelumnya</button>
-            <button class="btn btn-next" onclick="window.location.href='/user/subtest2'">
+            <button class="btn btn-next" onclick="window.location.href='/user/subtest4'">
                 Selanjutnya <i class="bi bi-chevron-right"></i>
             </button>
         </div>

@@ -44,7 +44,7 @@
     </div>
 
     <div class="text-center">
-        <img src="/img/end.png" alt="Image description" class="img-fluid mb-4" style="max-width: 100%;">
+        <img src="/img/end.png" alt="Image description" class="img-fluid mb-4" style="max-width: 300px;">
         <h1 class="mb-4" style="font-size: 48px;">PSIKOTEST-ILC Selesai!</h1>
         <div style="max-width: 650px;">
             <p class="mb-2" style="text-align: center; font-size: 24px; font-weight: 500; color:rgba(0, 0, 0, 0.5)">

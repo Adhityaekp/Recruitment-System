@@ -35,13 +35,13 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="mb-3">
-                        <label for="no_register" class="form-label">Nomor Registrasi</label>
+                        <label for="no_register" class="form-label" style="font-size: 18px">Nomor Registrasi</label>
                         <input type="text" class="form-control" id="no_register" name="no_register"
                             placeholder="Masukkan Nomor Registrasi" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="birth_date" class="form-label">Tanggal Lahir</label>
+                        <label for="birth_date" class="form-label" style="font-size: 18px">Tanggal Lahir</label>
                         <input type="date" class="form-control" id="birth_date" name="birth_date" required>
                     </div>
 
