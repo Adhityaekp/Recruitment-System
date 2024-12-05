@@ -194,11 +194,26 @@ video {
 }
 
 /* ==============================================
+   WebCam
+   ============================================== */
+   .webcam-video {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* ==============================================
    Sidebar
    ============================================== */
 
 .sidebar {
-    width: 250px;
+    width: 220px;
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
     background-color: #fafafa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -216,7 +231,7 @@ video {
 }
 
 .main-content {
-    margin-left: 250px;
+    margin-left: 210px;
     transition: margin-left 0.3s ease-in-out;
     flex-grow: 1;
 }
@@ -278,29 +293,29 @@ video {
    ============================================== */
 
 #sidebarToggle {
-    font-size: 1.5rem; /* Perbesar ukuran font */
-    background: none; /* Hilangkan latar belakang */
-    border: none; /* Hilangkan border */
-    outline: none; /* Hilangkan outline */
-    cursor: pointer; /* Pointer tetap aktif untuk klik */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 #sidebarToggle i {
-    font-size: 2rem; /* Perbesar ikon */
-    color: inherit; /* Warna sesuai tema */
+    font-size: 2rem;
+    color: inherit;
 }
 
 #sidebarToggle:hover,
 #sidebarToggle:focus {
-    background: none; /* Pastikan hover tidak ada */
-    color: inherit; /* Warna tetap */
+    background: none;
+    color: inherit;
 }
 
 img.rounded-circle {
     width: 40px;
     height: auto;
-    object-fit: cover; /* Pastikan bagian gambar tetap proporsional */
-    border-radius: 50%; /* Agar tetap berbentuk lingkaran */
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 /* ==============================================
@@ -308,10 +323,10 @@ img.rounded-circle {
    ============================================== */
 
 .footer {
-    background-color: #fafafa;  /* Background color */
-    color: rgba(0, 0, 0, 0.5);  /* Text color (50% black) */
-    padding-left: 15px;  /* Optional, for alignment of the first paragraph */
-    padding-right: 15px;  /* Optional, for alignment of the second paragraph */
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 15px;
+    padding-right: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -336,14 +351,14 @@ img.rounded-circle {
    ============================================== */
 
    .table-container {
-    background-color: #ffffff;  /* White background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
-    padding: 50px;  /* Padding */
-    border-radius: 20px;  /* Rounded corners */
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 20px; 
+    max-width: 1200px;
+  margin: 0 auto;
 }
 
-
-/* Reset button style */
 .btn-filter {
     background: none;
     border: none;
@@ -356,51 +371,43 @@ img.rounded-circle {
     margin-right: 10px;
 }
 
-/* Menambahkan border bawah saat tombol di-hover */
 .btn-filter:hover {
     border-bottom: 2px solid black;
 }
 
-/* Menambahkan border bawah saat tombol aktif atau dipilih */
 .btn-filter.active {
     border-bottom: 2px solid black;
 }
 
 #dataTable {
     width: 100%;
-    border-collapse: separate; /* Use separate border model to allow radius on table */
-    border-spacing: 0; /* Remove spacing between table cells */
-    border: 1px solid #ddd; /* Outer border for the entire table */
-    border-radius: 8px; /* Rounded corners for the table */
-    overflow: hidden; /* Ensures the border-radius is visible */
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
     padding: 10px;
 }
 
 #dataTable th,
 #dataTable td {
-    padding: 12px 15px; /* Padding inside each cell */
+    padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd; /* Border at the bottom of each cell */
+    border-bottom: 1px solid #ddd;
 }
 
 #dataTable thead {
-    background-color: transparent; /* Optional: No background color for the header */
-    font-weight: bold; /* Optional: Make the header text bold */
+    background-color: transparent;
+    font-weight: bold;
 }
 
 #dataTable thead th {
-    border-bottom: 2px solid #ddd; /* Thicker border for the table header */
+    border-bottom: 2px solid #ddd;
 }
 
 #dataTable tbody tr {
-    background-color: transparent; /* Optional: No background color for rows */
+    background-color: transparent;
 }
-
-/* #dataTable,
-#dataTable th,
-#dataTable td {
-    border: none; /* Remove borders from the cells */
-} */
 
 #dataTable {
     border: 1px solid #ddd; 
@@ -415,33 +422,29 @@ img.rounded-circle {
     text-decoration: underline;
 }
 
-/* Increase the font size and make it semi-bold for the name */
 .name {
     font-size: 1.2em;
-    font-weight: 600;  /* Semi-bold */
+    font-weight: 600;
 }
 
-/* Style for the school name under the main name */
 .school-name {
     font-size: 0.9em;
-    color: gray;  /* Lighter color for the school name */
+    color: gray;
 }
 
-/* Style for <a> links, removing blue and underline */
 a {
-    text-decoration: none; /* Remove underline */
-    color: inherit;  /* Inherit the text color */
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Optionally, you can add hover effect to <a> links */
 a:hover {
-    color: #007BFF;  /* Example hover color */
+    color: #007BFF;
 }
 
 .filter-container {
     padding: 20px;
     box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;  /* Rounded corners */
+    border-radius: 20px;
     background-color: #fafafa;
     margin-bottom: 33px;
 }
