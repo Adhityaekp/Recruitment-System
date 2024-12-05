@@ -19,7 +19,7 @@
         <div class="flex-grow-1 main-content">
             <x-navbar userName="Admin" />
 
-            <div class="container my-4 table-container">
+            <div class="container my-3 table-container">
                 <h1>Summary Test</h1>
                 <p>Semua Summary Test</p>
 
@@ -164,9 +164,10 @@
             <td><a href="details_iq.html?value=${encodeURIComponent(item.iqTestValue)}">${item.iqTestValue}</a></td>
             <td><a href="/detail/papikostik/${item.papikostikValue}" class="clickable-link">Lihat</a></td>
             <td><a href="/detail/loc/${item.locValue}" class="clickable-link">Lihat</a></td>
-<td>
-    <a href="/admin/detailtrainee" class="btn btn-primary">Action</a>
-</td>        `;
+            <td>
+                <a href="/admin/detailtrainee" class="btn btn-primary">Action</a>
+            </td> 
+       `;
             });
 
             // Update pagination

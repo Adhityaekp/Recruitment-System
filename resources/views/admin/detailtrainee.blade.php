@@ -118,6 +118,7 @@
                             <td id="salah-tkdv">10</td>
                             <td id="takdiisi-tkdv">5</td>
                             <td id="nilai-tkdv">85</td>
+                            
                             <td><a href="/admin/detailtesttkdv" class="btn btn-primary btn-sm">Detail</a></td>
                         </tr>
                         <tr>

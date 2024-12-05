@@ -14,7 +14,7 @@
 
 <body>
     <div class="d-flex" style="min-height: 100vh;">
-        <x-sidebar /> 
+        <x-sidebar />
 
         <div class="flex-grow-1 main-content">
             <x-navbar userName="Admin" />
@@ -23,7 +23,6 @@
                 <h1>Question</h1>
 
                 <div class="accordion mt-4" id="questionAccordion">
-                    <!-- Sub Test 1 -->
                     <div class="accordion-item position-relative">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -49,8 +48,7 @@
                                                     <input class="form-check-input" type="radio" name="soal1"
                                                         id="soal1A" value="A">
                                                     <label class="form-check-label" for="soal1A">
-                                                        <img src="/img/A.png" alt="Jawaban A"
-                                                            style="width: 50px;">
+                                                        <img src="/img/A.png" alt="Jawaban A" style="width: 50px;">
                                                     </label>
                                                 </div>
 
@@ -58,8 +56,7 @@
                                                     <input class="form-check-input" type="radio" name="soal1"
                                                         id="soal1B" value="B">
                                                     <label class="form-check-label" for="soal1B">
-                                                        <img src="/img/B.png" alt="Jawaban B"
-                                                            style="width: 50px;">
+                                                        <img src="/img/B.png" alt="Jawaban B" style="width: 50px;">
                                                     </label>
                                                 </div>
 
@@ -67,8 +64,7 @@
                                                     <input class="form-check-input" type="radio" name="soal1"
                                                         id="soal1C" value="C">
                                                     <label class="form-check-label" for="soal1C">
-                                                        <img src="/img/C.png" alt="Jawaban C"
-                                                            style="width: 50px;">
+                                                        <img src="/img/C.png" alt="Jawaban C" style="width: 50px;">
                                                     </label>
                                                 </div>
                                             </form>
@@ -82,7 +78,6 @@
                                         </div>
                                     </li>
 
-                                    <!-- Modal Edit Soal 1 -->
                                     <div class="modal fade" id="editSoalModal1" tabindex="-1"
                                         aria-labelledby="editSoalModalLabel1" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -93,19 +88,15 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <!-- Gambar Soal untuk Edit -->
                                                     <label for="editSoal1">Soal:</label>
                                                     <input type="file" id="editSoal1" class="form-control">
 
-                                                    <!-- Gambar Jawaban A untuk Edit -->
                                                     <label for="editJawaban1">Jawaban A:</label>
                                                     <input type="file" id="editJawaban1" class="form-control">
 
-                                                    <!-- Gambar Jawaban B untuk Edit -->
                                                     <label for="editJawaban2">Jawaban B:</label>
                                                     <input type="file" id="editJawaban2" class="form-control">
 
-                                                    <!-- Gambar Jawaban C untuk Edit -->
                                                     <label for="editJawaban3">Jawaban C:</label>
                                                     <input type="file" id="editJawaban3" class="form-control">
                                                 </div>
@@ -128,7 +119,6 @@
                 </div>
             </div>
 
-            <!-- Footer -->
             <footer class="footer text-center py-3 d-flex justify-content-between align-items-center">
                 <p class="mb-0">&copy; 2024 Your Company. All rights reserved.</p>
                 <p class="mb-0">Supported By ILC</p>

@@ -26,7 +26,7 @@
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a class="nav-link test-nav-link" href="#" id="tkdV">
+                                <a class="nav-link test-nav-link" href="/admin/tkdv" id="tkdV">
                                     <i class="bi bi-dot"></i> TKD V</span>
                                 </a>
                             </li>

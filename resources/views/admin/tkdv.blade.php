@@ -21,9 +21,8 @@
 
             <div class="container my-4 table-container">
                 <h1>Summary Test</h1>
-                <p>Semua Summary Test</p>
+                <p>Summary Test TKD V</p>
 
-                <!-- Class Filter Menu (like navbar) -->
                 <div class="d-flex justify-content-between mb-3">
                     <div class="btn-group" role="group" aria-label="Class Filter">
                         <button type="button" class="btn btn-filter" onclick="filterClass('all')">All Classes</button>

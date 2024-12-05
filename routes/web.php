@@ -27,6 +27,10 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
+Route::get('/admin/tkdv', function () {
+    return view('admin.tkdv');
+})->name('admin.tkdv');
+
 Route::get('/admin/detailtrainee', function () {
     return view('admin.detailtrainee');
 })->name('admin.detailtrainee');
