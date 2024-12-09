@@ -61,7 +61,7 @@
                             <img src="/img/admin.jpg" alt="Foto Profil" class="rounded-circle" id="profileImage"
                                 style="width: 150px; height: 150px; object-fit: cover;">
                             <button type="button"
-                                class="btn btn-outline-secondary position-absolute bottom-0 end-0 rounded-circle"
+                                class="btn btn-custom position-absolute bottom-0 end-0 rounded-circle"
                                 style="width: 30px; height: 30px; padding: 0; margin: 20px;"
                                 onclick="openProfileEditModal()">
                                 <i class="fas fa-pencil-alt"></i>
@@ -72,35 +72,39 @@
                     <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap</label>
                         <div class="input-group">
-                            <input type="text" id="namaLengkap" class="form-control" value="John Doe" readonly>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="toggleEdit('namaLengkap', this)">Edit</button>
+                            <input type="text" id="namaLengkap" class="form-control custom-input" value="John Doe"
+                                readonly>
+                            <button class="btn btn-custom" type="button" onclick="toggleEdit('namaLengkap', this)"><i
+                                    class="bi bi-pencil"></i><span class="ms-2">Edit</span></button>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="posisi" class="form-label">Posisi</label>
+                        <label for="kelas" class="form-label">Posisi</label>
                         <div class="input-group">
-                            <select id="posisi" class="form-select" disabled>
-                                <option value="Admin" selected>Admin</option>
+                            <select id="kelas" class="form-select " disabled>
+                                <option value="Mechanical" selected>Admin</option>
+                                <option value="Mechanical" selected>Super Admin</option>
                             </select>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="toggleEdit('kelas', this)">Edit</button>
+                            <button class="btn btn-custom" type="button" onclick="toggleEdit('kelas', this)"><i
+                                    class="bi bi-pencil"></i><span class="ms-2">Edit</span></button>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="Username" class="form-label">Username</label>
                         <div class="input-group">
-                            <input type="text" id="Username" class="form-control" value="Admin" readonly>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="toggleEdit('Username', this)">Edit</button>
+                            <input type="text" id="Username" class="form-control custom-input" value="Admin"
+                                readonly>
+                            <button class="btn btn-custom" type="button" onclick="toggleEdit('Username', this)"><i
+                                    class="bi bi-pencil"></i><span class="ms-2">Edit</span></button>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
-                            <input type="password" id="password" class="form-control" value="Admin" readonly>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="openPasswordModal()">Edit</button>
+                            <input type="password" id="password" class="form-control custom-input" value="Admin"
+                                readonly>
+                            <button class="btn btn-custom" type="button" onclick="openPasswordModal()"><i
+                                    class="bi bi-pencil"></i><span class="ms-2">Edit</span></button>
                         </div>
                     </div>
                 </form>
@@ -129,9 +133,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
+                                <button type="button" class="btn button-back"
                                     data-bs-dismiss="modal">Batal</button>
-                                <button type="button" class="btn btn-primary"
+                                <button type="button" class="btn btn-masuk"
                                     onclick="savePasswordChange()">Simpan</button>
                             </div>
                         </div>
@@ -153,41 +157,52 @@
         function toggleEdit(inputId, button) {
             const inputElement = document.getElementById(inputId);
 
-            if (button.innerText === "Edit") {
-                // Mode Edit
+            if (button.innerText.trim() === "Edit") {
                 inputElement.removeAttribute('readonly');
                 inputElement.disabled = false;
-                inputElement.focus(); // Fokus pada input
-                button.innerText = "Simpan";
+                inputElement.focus();
 
-                // Tambahkan tombol Batal
+                button.innerHTML = `<span>Simpan</span>`;
+                button.className = "btn btn-custom save-button";
+
                 const cancelButton = document.createElement('button');
-                cancelButton.innerText = "Batal";
-                cancelButton.className = "btn btn-outline-danger ms-2";
+                cancelButton.innerHTML = `<span>Batal</span>`;
+                cancelButton.className = "btn btn-custom cancel-button";
                 cancelButton.type = "button";
                 cancelButton.onclick = function() {
                     cancelEdit(inputElement, button, cancelButton);
                 };
                 button.parentNode.appendChild(cancelButton);
 
-            } else if (button.innerText === "Simpan") {
-                // Mode Simpan
+            } else if (button.innerText.trim() === "Simpan") {
                 inputElement.setAttribute('readonly', 'true');
                 inputElement.disabled = true;
-                button.innerText = "Edit";
 
-                // Hapus tombol Batal
-                const cancelButton = button.parentNode.querySelector(".btn-outline-danger");
+                button.innerHTML = `<i class="bi bi-pencil"></i><span class="ms-2">Edit</span>`;
+                button.className = "btn btn-custom";
+
+                const cancelButton = button.parentNode.querySelector(".cancel-button");
                 if (cancelButton) cancelButton.remove();
             }
         }
 
-        function cancelEdit(inputElement, editButton, cancelButton) {
-            // Batalkan mode edit
+        function cancelEdit(inputElement, saveButton, cancelButton) {
             inputElement.setAttribute('readonly', 'true');
             inputElement.disabled = true;
-            editButton.innerText = "Edit";
-            cancelButton.remove(); // Hapus tombol Batal
+
+            saveButton.innerHTML = `<i class="bi bi-pencil"></i><span class="ms-2">Edit</span>`;
+            saveButton.className = "btn btn-custom";
+
+            cancelButton.remove();
+        }
+
+
+        function cancelEdit(inputElement, editButton, cancelButton) {
+            inputElement.setAttribute('readonly', 'true');
+            inputElement.disabled = true;
+            editButton.innerHTML = `<span>Edit</span><i class="bi bi-pencil ms-2"></i>`;
+            editButton.className = "btn btn-custom";
+            cancelButton.remove();
         }
 
         // Fungsi untuk membuka modal

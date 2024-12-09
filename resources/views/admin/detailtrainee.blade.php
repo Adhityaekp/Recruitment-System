@@ -225,7 +225,6 @@
             cancelButton.remove();
         }
 
-
         function resetTest() {
             document.getElementById('keteranganTes').value = "Belum Mengerjakan";
             document.getElementById('waktuTes').value = "00:00:00";
