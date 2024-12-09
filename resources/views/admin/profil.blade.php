@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
-        /* Menambahkan gaya untuk foto profil dan tombol edit */
         .profile-container {
             position: relative;
             display: inline-block;
@@ -19,7 +18,6 @@
 
         .profile-container img {
             border-radius: 50%;
-            /* Membuat gambar menjadi bentuk oval */
         }
 
         .profile-container button {
@@ -38,17 +36,14 @@
 
         .profile-container button i {
             color: #007bff;
-            /* Menentukan warna ikon */
         }
     </style>
 </head>
 
 <body>
-    <!-- Main Content -->
     <div class="d-flex" style="min-height: 100vh;">
-        <x-sidebar /> <!-- Sidebar component -->
+        <x-sidebar />
 
-        <!-- Main Content -->
         <div class="flex-grow-1 main-content">
             <x-navbar userName="Admin" />
 
@@ -133,8 +128,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn button-back"
-                                    data-bs-dismiss="modal">Batal</button>
+                                <button type="button" class="btn button-back" data-bs-dismiss="modal">Batal</button>
                                 <button type="button" class="btn btn-masuk"
                                     onclick="savePasswordChange()">Simpan</button>
                             </div>
@@ -144,7 +138,6 @@
 
             </div>
 
-            <!-- Footer -->
             <footer class="footer text-center py-3 d-flex justify-content-between align-items-center">
                 <p class="mb-0">&copy; 2024 Your Company. All rights reserved.</p>
                 <p class="mb-0">Supported By ILC</p>
@@ -205,19 +198,15 @@
             cancelButton.remove();
         }
 
-        // Fungsi untuk membuka modal
         function openPasswordModal() {
-            // Reset modal input
             document.getElementById('oldPassword').value = '';
             document.getElementById('newPassword').value = '';
             document.getElementById('confirmPassword').value = '';
 
-            // Tampilkan modal
             var passwordModal = new bootstrap.Modal(document.getElementById('passwordModal'));
             passwordModal.show();
         }
 
-        // Fungsi untuk menyimpan perubahan kata sandi
         function savePasswordChange() {
             const oldPassword = document.getElementById('oldPassword').value;
             const newPassword = document.getElementById('newPassword').value;
@@ -233,10 +222,8 @@
                 return;
             }
 
-            // Proses simpan password baru (misalnya kirim ke server)
             alert('Password berhasil diubah.');
 
-            // Tutup modal setelah simpan
             var passwordModal = bootstrap.Modal.getInstance(document.getElementById('passwordModal'));
             passwordModal.hide();
         }
