@@ -31,6 +31,18 @@ Route::get('/admin/tkdv', function () {
     return view('admin.tkdv');
 })->name('admin.tkdv');
 
+Route::get('/admin/iqtest', function () {
+    return view('admin.iqtest');
+})->name('admin.iqtest');
+
+Route::get('/admin/papikostik', function () {
+    return view('admin.papikostik');
+})->name('admin.papikostik');
+
+Route::get('/admin/loc', action: function () {
+    return view('admin.loc');
+})->name('admin.loc');
+
 Route::get('/admin/detailtrainee', function () {
     return view('admin.detailtrainee');
 })->name('admin.detailtrainee');

@@ -37,13 +37,13 @@
 
                     <div class="mb-3">
                         <label for="username" class="form-label" style="font-size: 18px">Username</label>
-                        <input type="text" class="form-control" id="username" name="username"
+                        <input type="text" class="form-control input-login" id="username" name="username"
                             placeholder="Masukkan Username" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="Kata Sandi" class="form-label" style="font-size: 18px">Kata Sandi</label>
-                        <input type="password" class="form-control" id="kata_sandi" name="kata_sandi"
+                        <input type="password" class="form-control input-login" id="kata_sandi" name="kata_sandi"
                             placeholder="Masukkan Kata Sandi" required>
                     </div>
 

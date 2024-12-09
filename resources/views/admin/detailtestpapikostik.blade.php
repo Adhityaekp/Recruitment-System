@@ -5,73 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Test Papikostik</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
-        /* .radar-chart-container {
+        .radar-chart-container {
             margin: 20px auto;
             max-width: 600px;
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        } */
+        }
     </style>
 </head>
 
 <body>
-    <!-- Main Content -->
     <div class="d-flex" style="min-height: 100vh;">
-        <!-- Sidebar -->
         <x-sidebar />
 
-        <!-- Main Content -->
         <div class="flex-grow-1 main-content">
             <x-navbar userName="Admin" />
 
-            <!-- Page Content -->
             <div class="container my-4 table-container">
-                <a href="javascript:window.history.back();" class="btn btn-link">Kembali</a>
-
+                <a href="javascript:window.history.back();" class="btn custom-link"><i class="bi bi-arrow-left"><span
+                            class="ms-2"></i>Kembali</a>
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h1>Detail Test Papikostik</h1>
-                    <button onclick="exportToPDF()">Export</button>
+                    <button class="btn btn-masuk" id="exportButton"><i class="bi bi-download"></i><span
+                            class="ms-2">Export</span>
+                    </button>
                 </div>
                 <form class="mb-3">
-                    <div class="row">
-                        <!-- Input Keterangan Tes -->
+                    <div class="row mb-3">
                         <div class="col">
-                            <label for="keteranganTes">Keterangan Tes</label>
-                            <input type="text" id="keteranganTes" class="form-control" value="Sudah Mengerjakan"
-                                readonly>
+                            <label for="namaLengkap">Nama Lengkap</label>
+                            <input type="text" id="namaLengkap" class="form-control custom-input"
+                                value="Budi Kristanto Utomo" readonly>
                         </div>
 
-                        <!-- Input Waktu -->
                         <div class="col">
-                            <label for="waktuTes">Waktu</label>
-                            <input type="text" id="waktuTes" class="form-control" value="00:00:00" readonly>
+                            <label for="noRegistrasi">No. Registrasi</label>
+                            <input type="text" id="noRegistrasi" class="form-control custom-input" value="MC0987765"
+                                readonly>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <!-- Input Keterangan Tes -->
+                    <div class="row mb-3">
                         <div class="col">
                             <label for="keteranganTes">Keterangan Tes</label>
-                            <input type="text" id="keteranganTes" class="form-control" value="Sudah Mengerjakan"
-                                readonly>
+                            <input type="text" id="keteranganTes" class="form-control custom-input"
+                                value="Sudah Mengerjakan" readonly>
                         </div>
 
                         <!-- Input Waktu -->
                         <div class="col">
                             <label for="waktuTes">Waktu</label>
-                            <input type="text" id="waktuTes" class="form-control" value="00:00:00" readonly>
+                            <input type="text" id="waktuTes" class="form-control custom-input" value="00:00:00"
+                                readonly>
                         </div>
                     </div>
                 </form>
 
-                <div>
+                <div class="radar-chart-container">
                     <canvas id="radarChart"></canvas>
                 </div>
 
@@ -85,16 +78,15 @@
                             </tr>
                         </thead>
                         <tbody id="scoreTableBody">
-                            <!-- Rows will be inserted here dynamically -->
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Tabel -->
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h2>Kesimpulan</h2>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#videoModal">Tonton
-                        Rekaman</button>
+                    <button class="btn button-back" data-bs-toggle="modal" data-bs-target="#videoModal"><i
+                            class="bi bi-camera-video"></i><span class="ms-2">Tonton
+                            Rekaman</button>
                 </div>
 
                 <p id="conclusionText" class="text-muted">
@@ -120,7 +112,6 @@
                 </div>
             </div>
 
-            <!-- Footer -->
             <footer class="footer text-center py-3 d-flex justify-content-between align-items-center">
                 <p class="mb-0">&copy; 2024 Your Company. All rights reserved.</p>
                 <p class="mb-0">Supported By ILC</p>
@@ -128,7 +119,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -144,12 +134,12 @@
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 2,
-                    label: '' // Remove label from dataset
+                    label: ''
                 }]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // Allow resizing and maintaining circular shape
+                maintainAspectRatio: false,
                 scales: {
                     r: {
                         angleLines: {
@@ -159,22 +149,21 @@
                         suggestedMax: 10,
                         ticks: {
                             stepSize: 1,
-                            display: false // Hides the radial ticks
+                            display: false
                         },
                         grid: {
-                            circular: true // Make the grid circular
+                            circular: true
                         }
                     }
                 },
                 plugins: {
                     legend: {
-                        display: false // Hide the legend entirely
+                        display: false
                     }
                 }
             }
         });
 
-        // Data for the table (this can be expanded with descriptions)
         const descriptions = {
             'N': 'Penyelesaian Pekerjaan',
             'G': 'Kerja Sama Tim',
@@ -198,13 +187,11 @@
             'W': 'Etika Kerja'
         };
 
-        // Function to generate table rows dynamically
         function generateTable() {
             const tableBody = document.getElementById('scoreTableBody');
             const data = radarChart.data.datasets[0].data;
             const labels = radarChart.data.labels;
 
-            // Loop through each item in the chart data and add a row to the table
             for (let i = 0; i < data.length; i++) {
                 const row = document.createElement('tr');
                 const codeCell = document.createElement('td');
@@ -227,16 +214,14 @@
             }
         }
 
-        // Call the function to generate the table once the chart is initialized
         generateTable();
 
         function generateConclusion() {
-            const data = radarChart.data.datasets[0].data; // Data chart
-            const labels = radarChart.data.labels; // Labels chart
+            const data = radarChart.data.datasets[0].data;
+            const labels = radarChart.data.labels;
             let highScores = [];
             let lowScores = [];
 
-            // Iterate over data to categorize high and low scores
             for (let i = 0; i < data.length; i++) {
                 const score = data[i];
                 const label = labels[i];
@@ -249,7 +234,6 @@
                 }
             }
 
-            // Build conclusion text
             let conclusionText =
                 "Berdasarkan hasil chart, dapat disimpulkan bahwa Anda memiliki kekuatan yang lebih baik dalam beberapa aspek seperti: ";
             if (highScores.length > 0) {
@@ -265,11 +249,9 @@
                 conclusionText += 'Tidak ada aspek yang perlu perbaikan.';
             }
 
-            // Update the conclusion text in the HTML
             document.getElementById('conclusionText').innerHTML = conclusionText;
         }
 
-        // Call the function to generate conclusion once the chart is initialized
         generateConclusion();
     </script>
 </body>

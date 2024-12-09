@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Test</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -15,85 +14,90 @@
 </head>
 
 <body>
-    <!-- Main Content -->
     <div class="d-flex" style="min-height: 100vh;">
-        <!-- Sidebar -->
         <x-sidebar />
 
-        <!-- Main Content -->
         <div class="flex-grow-1 main-content">
             <x-navbar userName="Admin" />
 
-            <!-- Page Content -->
             <div class="container my-4 table-container">
-                <a href="javascript:window.history.back();" class="btn btn-link">Kembali</a>
+                <a href="javascript:window.history.back();" class="btn custom-link"><i
+                        class="bi bi-arrow-left m-2"></i>Kembali</a>
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h1>Detail Trainee</h1>
-                    <button id="exportButton">Export</button>
+                    <button class="btn btn-masuk" id="exportButton"><i class="bi bi-download"></i><span
+                            class="ms-2">Export</span>
+                    </button>
                 </div>
-                <form>
+                <form class="mb-3">
                     <div class="mb-3">
                         <label for="noRegistrasi" class="form-label">No Registrasi</label>
                         <div class="input-group">
-                            <input type="text" id="noRegistrasi" class="form-control" value="123456" readonly>
+                            <input type="text" id="noRegistrasi" class="form-control custom-input" value="123456"
+                                readonly>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap</label>
                         <div class="input-group">
-                            <input type="text" id="namaLengkap" class="form-control" value="John Doe" readonly>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="toggleEdit('namaLengkap', this)">Edit</button>
+                            <input type="text" id="namaLengkap" class="form-control custom-input" value="John Doe"
+                                readonly>
+                            <button class="btn btn-custom" type="button" onclick="toggleEdit('namaLengkap', this)">
+                                <i class="bi bi-pencil"></i><span class="ms-2">Edit</span>
+                            </button>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
                         <div class="input-group">
-                            <input type="date" id="tanggalLahir" class="form-control" value="2000-01-01" readonly>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="toggleEdit('tanggalLahir', this)">Edit</button>
+                            <input type="date" id="tanggalLahir" class="form-control custom-input" value="2000-01-01"
+                                readonly>
+                            <button class="btn btn-custom" type="button" onclick="toggleEdit('tanggalLahir', this)"><i
+                                    class="bi bi-pencil"></i><span class="ms-2">Edit</span></button>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="asalSekolah" class="form-label">Asal Sekolah</label>
                         <div class="input-group">
-                            <input type="text" id="asalSekolah" class="form-control" value="SMK Negeri 1" readonly>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="toggleEdit('asalSekolah', this)">Edit</button>
+                            <input type="text" id="asalSekolah" class="form-control custom-input"
+                                value="SMK Negeri 1" readonly>
+                            <button class="btn btn-custom" type="button" onclick="toggleEdit('asalSekolah', this)"><i
+                                    class="bi bi-pencil"></i><span class="ms-2">Edit</span>
+                            </button>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="kelas" class="form-label">Kelas</label>
                         <div class="input-group">
-                            <select id="kelas" class="form-select" disabled>
+                            <select id="kelas" class="form-select " disabled>
                                 <option value="Mechanical" selected>Mechanical</option>
                             </select>
-                            <button class="btn btn-outline-secondary" type="button"
-                                onclick="toggleEdit('kelas', this)">Edit</button>
+                            <button class="btn btn-custom" type="button" onclick="toggleEdit('kelas', this)"><i
+                                    class="bi bi-pencil"></i><span class="ms-2">Edit</span></button>
                         </div>
                     </div>
                 </form>
 
-                <!-- Tabel -->
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h2>Summary Test</h2>
-                    <button class="btn btn-warning" onclick="resetTest()">Mulai Ulang</button>
+                    <button class="btn btn-masuk" onclick="resetTest()"><i class="bi bi-arrow-repeat"></i><span
+                            class="ms-2">Mulai Ulang</span>
+                    </button>
                 </div>
 
                 <form class="mb-3">
                     <div class="row">
-                        <!-- Input Keterangan Tes -->
                         <div class="col">
                             <label for="keteranganTes">Keterangan Tes</label>
-                            <input type="text" id="keteranganTes" class="form-control" value="Sudah Mengerjakan"
-                                readonly>
+                            <input type="text" id="keteranganTes" class="form-control custom-input"
+                                value="Sudah Mengerjakan" readonly>
                         </div>
 
-                        <!-- Input Waktu -->
                         <div class="col">
                             <label for="waktuTes">Waktu</label>
-                            <input type="text" id="waktuTes" class="form-control" value="00:00:00" readonly>
+                            <input type="text" id="waktuTes" class="form-control custom-input" value="00:00:00"
+                                readonly>
                         </div>
                     </div>
                 </form>
@@ -102,55 +106,59 @@
                     <thead>
                         <tr>
                             <th>Jenis Test</th>
-                            <th>Jumlah Soal</th>
-                            <th>Benar</th>
-                            <th>Salah</th>
-                            <th>Tak Diisi</th>
-                            <th>Nilai</th>
-                            <th>Detail</th>
+                            <th class="text-center">Jumlah Soal</th>
+                            <th class="text-center">Benar</th>
+                            <th class="text-center">Salah</th>
+                            <th class="text-center">Tak Diisi</th>
+                            <th class="text-center">Nilai</th>
+                            <th class="text-center">Detail</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>TKD V</td>
-                            <td>100</td>
-                            <td id="benar-tkdv">85</td>
-                            <td id="salah-tkdv">10</td>
-                            <td id="takdiisi-tkdv">5</td>
-                            <td id="nilai-tkdv">85</td>
-                            
-                            <td><a href="/admin/detailtesttkdv" class="btn btn-primary btn-sm">Detail</a></td>
+                            <td class="text-center">100</td>
+                            <td class="text-center" id="benar-tkdv">85</td>
+                            <td class="text-center" id="salah-tkdv">10</td>
+                            <td class="text-center" id="takdiisi-tkdv">5</td>
+                            <td class="text-center" id="nilai-tkdv">85</td>
+                            <td class="text-center"> <a href="/admin/detailtesttkdv" class="custom-link"><i
+                                        class="bi bi-three-dots"></i></a>
                         </tr>
                         <tr>
                             <td>IQ Test</td>
-                            <td>50</td>
-                            <td id="benar-iqtest">40</td>
-                            <td id="salah-iqtest">5</td>
-                            <td id="takdiisi-iqtest">5</td>
-                            <td id="nilai-iqtest">80</td>
-                            <td><a href="/admin/detailtest/iqtest" class="btn btn-primary btn-sm">Detail</a></td>
+                            <td class="text-center">50</td>
+                            <td class="text-center" id="benar-iqtest">40</td>
+                            <td class="text-center" id="salah-iqtest">5</td>
+                            <td class="text-center" id="takdiisi-iqtest">5</td>
+                            <td class="text-center" id="nilai-iqtest">80</td>
+                            <td class="text-center"> <a href="/admin/detailtestiqtest" class="custom-link"><i
+                                        class="bi bi-three-dots"></i></a>
                         </tr>
                         <tr>
                             <td>Papikostik</td>
-                            <td>60</td>
-                            <td id="benar-papikostik">50</td>
-                            <td id="salah-papikostik">8</td>
-                            <td id="takdiisi-papikostik">2</td>
-                            <td id="nilai-papikostik">83</td>
-                            <td><a href="/admin/detailtestpapikostik" class="btn btn-primary btn-sm">Detail</a></td>
+                            <td class="text-center">60</td>
+                            <td class="text-center" id="benar-papikostik">-</td>
+                            <td class="text-center" id="salah-papikostik">-</td>
+                            <td class="text-center" id="takdiisi-papikostik">-</td>
+                            <td class="text-center" id="nilai-papikostik">-</td>
+                            <td class="text-center"> <a href="/admin/detailtestpapikostik" class="custom-link"><i
+                                        class="bi bi-three-dots"></i></a>
                         </tr>
                         <tr>
                             <td>LoC</td>
-                            <td>40</td>
-                            <td id="benar-loc">35</td>
-                            <td id="salah-loc">4</td>
-                            <td id="takdiisi-loc">1</td>
-                            <td id="nilai-loc">88</td>
-                            <td><a href="/admin/detailtest/loc" class="btn btn-primary btn-sm">Detail</a></td>
+                            <td class="text-center">40</td>
+                            <td class="text-center" id="benar-loc">-</td>
+                            <td class="text-center" id="salah-loc">-</td>
+                            <td class="text-center" id="takdiisi-loc">-</td>
+                            <td class="text-center" id="nilai-loc">-</td>
+                            <td class="text-center"> <a href="/admin/detailtestloc" class="custom-link"><i
+                                        class="bi bi-three-dots"></i></a>
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-danger btn-lg w-100 mt-3" onclick="hapusTrainee()">Hapus Trainee</button>
+                <button class="btn button-back btn-lg w-100 mt-3" onclick="hapusTrainee()"><i
+                        class="bi bi-trash"></i> Hapus Trainee</button>
             </div>
 
             <!-- Footer -->
@@ -169,49 +177,59 @@
         function toggleEdit(inputId, button) {
             const inputElement = document.getElementById(inputId);
 
-            if (button.innerText === "Edit") {
-                // Mode Edit
+            if (button.innerText.trim() === "Edit") {
                 inputElement.removeAttribute('readonly');
                 inputElement.disabled = false;
-                inputElement.focus(); // Fokus pada input
-                button.innerText = "Simpan";
+                inputElement.focus();
 
-                // Tambahkan tombol Batal
+                button.innerHTML = `<span>Simpan</span>`;
+                button.className = "btn btn-custom save-button";
+
                 const cancelButton = document.createElement('button');
-                cancelButton.innerText = "Batal";
-                cancelButton.className = "btn btn-outline-danger ms-2";
+                cancelButton.innerHTML = `<span>Batal</span>`;
+                cancelButton.className = "btn btn-custom cancel-button";
                 cancelButton.type = "button";
                 cancelButton.onclick = function() {
                     cancelEdit(inputElement, button, cancelButton);
                 };
                 button.parentNode.appendChild(cancelButton);
 
-            } else if (button.innerText === "Simpan") {
-                // Mode Simpan
+            } else if (button.innerText.trim() === "Simpan") {
                 inputElement.setAttribute('readonly', 'true');
                 inputElement.disabled = true;
-                button.innerText = "Edit";
 
-                // Hapus tombol Batal
-                const cancelButton = button.parentNode.querySelector(".btn-outline-danger");
+                button.innerHTML = `<i class="bi bi-pencil"></i><span class="ms-2">Edit</span>`;
+                button.className = "btn btn-custom";
+
+                const cancelButton = button.parentNode.querySelector(".cancel-button");
                 if (cancelButton) cancelButton.remove();
             }
         }
 
-        function cancelEdit(inputElement, editButton, cancelButton) {
-            // Batalkan mode edit
+        function cancelEdit(inputElement, saveButton, cancelButton) {
             inputElement.setAttribute('readonly', 'true');
             inputElement.disabled = true;
-            editButton.innerText = "Edit";
-            cancelButton.remove(); // Hapus tombol Batal
+
+            saveButton.innerHTML = `<i class="bi bi-pencil"></i><span class="ms-2">Edit</span>`;
+            saveButton.className = "btn btn-custom";
+
+            cancelButton.remove();
         }
 
+
+        function cancelEdit(inputElement, editButton, cancelButton) {
+            inputElement.setAttribute('readonly', 'true');
+            inputElement.disabled = true;
+            editButton.innerHTML = `<span>Edit</span><i class="bi bi-pencil ms-2"></i>`;
+            editButton.className = "btn btn-custom";
+            cancelButton.remove();
+        }
+
+
         function resetTest() {
-            // Reset Keterangan Tes dan Waktu
             document.getElementById('keteranganTes').value = "Belum Mengerjakan";
             document.getElementById('waktuTes').value = "00:00:00";
 
-            // Reset Nilai Tabel
             const tests = ['tkdv', 'iqtest', 'papikostik', 'loc'];
             tests.forEach(test => {
                 document.getElementById(`benar-${test}`).textContent = "-";

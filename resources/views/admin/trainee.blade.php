@@ -8,6 +8,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
+        .search-container {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            color: #6c757d;
+            ] pointer-events: none;
+            ]
+        }
+
+        #searchInput {
+            padding-left: 2.5rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,68 +54,79 @@
                     </div>
                 </div>
 
-                <!-- Filter Date Range -->
                 <div class="filter-container">
                     <div class="d-flex justify-content-between">
                         <div class="d-flex align-items-center">
-                            <!-- Button to trigger "Tambah Trainee" modal -->
-                            <button class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#addTraineeModal">Tambah Trainee</button>
+                            <button class="btn btn-masuk" data-bs-toggle="modal" data-bs-target="#addTraineeModal">
+                                <i class="bi bi-person-plus"></i><span class="ms-2">Tambah Trainee</span>
+                            </button>
 
-                            <!-- Button to Export Table to CSV -->
-                            <button class="btn btn-success ms-2" onclick="exportTableToCSV('tabel-data.csv')">Export to
-                                CSV</button>
+                            <button class="btn btn-masuk ms-2" onclick="exportTableToCSV('tabel-data.csv')">
+                                <i class="bi bi-download"></i><span class="ms-2">Export</span>
+                            </button>
                         </div>
 
-                        <!-- Filter Search -->
-                        <div>
-                            <input type="text" id="searchInput" class="form-control" placeholder="Search Trainee"
+                        <div class="search-container position-relative">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" id="searchInput" class="form-control ps-5" placeholder="Cari ..."
                                 onkeyup="filterTable()">
                         </div>
                     </div>
                 </div>
 
-                <!-- Modal to Add Trainee -->
                 <div class="modal fade" id="addTraineeModal" tabindex="-1" aria-labelledby="addTraineeModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
+                    <div class="modal-dialog" style="max-width: 800px;">
+                        <div class="modal-content" style="width: 100%;">
+                            <div class="modal-header" style="justify-content: center;">
                                 <h5 class="modal-title" id="addTraineeModalLabel">Tambah Trainee</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form id="addTraineeForm">
                                     <div class="mb-3">
-                                        <label for="noRegistrasi" class="form-label">No Registrasi</label>
-                                        <input type="text" class="form-control" id="noRegistrasi" required>
+                                        <label for="traineeClass" class="form-label">Kelas</label>
+                                        <select class="form-select" id="traineeClass" required
+                                            onchange="generateNoRegistrasi()">
+                                            <option value="" selected disabled>Pilih Kelas</option>
+                                            <option value="MC">Mechanical</option>
+                                            <option value="OP">Operator</option>
+                                            <option value="SP">Spesialis</option>
+                                        </select>
                                     </div>
+
+                                    <!-- No Registrasi (Otomatis) -->
+                                    <div class="mb-3">
+                                        <label for="noRegistrasi" class="form-label">No Registrasi</label>
+                                        <input type="text" class="form-control custom-input" id="noRegistrasi"
+                                            readonly>
+                                    </div>
+
+                                    <!-- Nama Trainee -->
                                     <div class="mb-3">
                                         <label for="traineeName" class="form-label">Nama Trainee</label>
-                                        <input type="text" class="form-control" id="traineeName" required>
+                                        <input type="text" class="form-control custom-input" id="traineeName"
+                                            required>
                                     </div>
+
+                                    <!-- Tanggal Lahir -->
                                     <div class="mb-3">
                                         <label for="traineeDate" class="form-label">Tanggal Lahir</label>
-                                        <input type="date" class="form-control" id="traineeDate" required>
+                                        <input type="date" class="form-control custom-input" id="traineeDate"
+                                            required>
                                     </div>
+
+                                    <!-- Asal Sekolah -->
                                     <div class="mb-3">
                                         <label for="traineeSchool" class="form-label">Asal Sekolah</label>
-                                        <input type="text" class="form-control" id="traineeSchool" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="traineeClass" class="form-label">Kelas</label>
-                                        <select class="form-select" id="traineeClass" required>
-                                            <option value="Mechanical">Mechanical</option>
-                                            <option value="Electrical">Electrical</option>
-                                            <option value="Software">Software</option>
-                                        </select>
+                                        <input type="text" class="form-control custom-input" id="traineeSchool"
+                                            required>
                                     </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="addTrainee()">Add
+                            <div class="modal-footer" style="justify-content: center;">
+                                <button type="button" class="btn button-back" style="width: 150px;"
+                                    data-bs-dismiss="modal">Kembali</button>
+                                <button type="button" class="btn btn-masuk" style="width: 150px;" onclick="addTrainee()">Tambah
                                     Trainee</button>
                             </div>
                         </div>
@@ -107,21 +137,21 @@
                 <table class="table" id="dataTable">
                     <thead>
                         <tr>
-                            <th onclick="sortTable(0)">Nama <i class="fa-solid fa-sort"></i></th>
+                            <th onclick="sortTable(0)">Nama <span class="sort-icon"><i
+                                        class="fa-solid fa-sort"></i></span></th>
                             <th>No. Registrasi</th>
-                            <th onclick="sortTable(1)">Tanggal Lahir <i class="fa-solid fa-sort"></i></th>
+                            <th onclick="sortTable(1)">Tanggal Lahir <span class="sort-icon"><i
+                                        class="fa-solid fa-sort"></i></span></th>
                             <th>Asal Sekolah</th>
-                            <th>Aksi</th>
+                            <th class="text-center">Detail</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Dynamic rows will be inserted here -->
                     </tbody>
                 </table>
 
-
                 <nav aria-label="Page navigation">
-                    <ul class="pagination" id="pagination"></ul>
+                    <ul class="pagination justify-content-end" id="pagination"></ul>
                 </nav>
             </div>
 
@@ -140,7 +170,7 @@
             name: "John Doe",
             dateOfBirth: "2024-11-01",
             class: "Mechanical",
-            school: "ABC High School", // Add school name here
+            school: "ABC High School",
         }];
 
 
@@ -168,8 +198,8 @@
             <td>${item.noregistrasi}</td>
             <td>${item.dateOfBirth}</td>
             <td>${item.school}</td>
-            <td>
-                <a href="/admin/detailtrainee" class="btn btn-primary">Action</a>
+            <td class="text-center">
+                <a href="/admin/detailtrainee" class="custom-link"><i class="bi bi-three-dots"></i></a>
             </td>
         `;
             });
@@ -258,31 +288,63 @@
         renderTable(data);
 
         // Fungsi untuk mengekspor tabel ke CSV
+        function generateNoRegistrasi() {
+            const traineeClass = document.getElementById('traineeClass').value;
+            if (traineeClass) {
+                const randomNumber = Math.floor(1000000 + Math.random() * 9000000); // Random 7-digit number
+                const noRegistrasi = `${traineeClass}${randomNumber}`;
+                document.getElementById('noRegistrasi').value = noRegistrasi;
+            } else {
+                document.getElementById('noRegistrasi').value = '';
+            }
+        }
+
         function addTrainee() {
-            // Get form values
-            const noRegistrasi = document.getElementById('noRegistrasi').value;
-            const name = document.getElementById('traineeName').value;
-            const date = document.getElementById('traineeDate').value;
-            const school = document.getElementById('traineeSchool').value;
+            // Ambil nilai dari input form
+            const noRegistrasi = document.getElementById('noRegistrasi').value.trim();
+            const traineeName = document.getElementById('traineeName').value.trim();
+            const traineeDate = document.getElementById('traineeDate').value;
+            const traineeSchool = document.getElementById('traineeSchool').value.trim();
             const traineeClass = document.getElementById('traineeClass').value;
 
-            // Create a new row in the table
-            const table = document.getElementById('traineeTable').getElementsByTagName('tbody')[0];
-            const newRow = table.insertRow();
+            // Validasi sederhana
+            if (!traineeClass || !noRegistrasi || !traineeName || !traineeDate || !traineeSchool) {
+                alert('Harap isi semua field!');
+                return;
+            }
 
-            newRow.innerHTML = `
-            <td>${noRegistrasi}</td>
-            <td>${name}</td>
-            <td>${date}</td>
-            <td>${school}</td>
-            <td>${traineeClass}</td>
-        `;
+            // Masukkan data ke dalam tabel
+            const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+            const row = tableBody.insertRow();
 
-            // Clear form inputs and close modal
+            row.innerHTML = `
+        <td>${traineeName}</td>
+        <td>${noRegistrasi}</td>
+        <td>${traineeDate}</td>
+        <td>${traineeSchool}</td>
+        <td>
+            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+        </td>
+    `;
+
+            // Reset form dan tutup modal
             document.getElementById('addTraineeForm').reset();
-            const modal = new bootstrap.Modal(document.getElementById('addTraineeModal'));
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addTraineeModal'));
             modal.hide();
         }
+
+        function deleteRow(button) {
+            // Hapus baris dari tabel
+            const row = button.parentElement.parentElement;
+            row.remove();
+        }
+
+        function deleteRow(button) {
+            // Hapus baris dari tabel
+            const row = button.parentElement.parentElement;
+            row.remove();
+        }
+
 
         // Function to export table to CSV
         function exportTableToCSV(filename) {
@@ -305,24 +367,18 @@
         // Function to filter table based on search input
         function filterTable() {
             const filter = document.getElementById('searchInput').value.toLowerCase();
-            const table = document.getElementById('traineeTable');
-            const rows = table.getElementsByTagName('tr');
 
-            Array.from(rows).forEach(row => {
-                const cells = row.getElementsByTagName('td');
-                if (cells.length > 0) {
-                    const noRegistrasi = cells[0].textContent.toLowerCase();
-                    const name = cells[1].textContent.toLowerCase();
-                    const school = cells[3].textContent.toLowerCase();
+            // Filter data array berdasarkan input
+            const filteredData = data.filter(item =>
+                item.name.toLowerCase().includes(filter) ||
+                item.noregistrasi.toLowerCase().includes(filter) ||
+                item.school.toLowerCase().includes(filter)
+            );
 
-                    if (noRegistrasi.includes(filter) || name.includes(filter) || school.includes(filter)) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                }
-            });
+            // Render tabel dengan data yang sudah difilter
+            renderTable(filteredData);
         }
+
 
         let sortDirection = true;
 

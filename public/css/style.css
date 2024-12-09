@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 label {
-    font-size: 20px;
+    font-size: 18px;
 }
 /* ==============================================
    LOGIN STYLES
@@ -13,13 +13,13 @@ label {
     padding: 50px;
 }
 
-input.form-control {
+input.input-login {
     background-color: rgba(222, 222, 222, 0.5);
     border: none;
     color: hsla(0, 0%, 0%, 0.5);
 }
 
-input.form-control:focus {
+input.input-login:focus {
     background-color: rgba(222, 222, 222, 0.7);
     outline: none;
     border-color: #7c0000;
@@ -419,7 +419,7 @@ form {
 }
 
 .main-content {
-    margin-left: 210px;
+    margin-left: 220px;
     transition: margin-left 0.3s ease-in-out;
     flex-grow: 1;
 }
@@ -633,4 +633,129 @@ a:hover {
     border-radius: 20px;
     background-color: #fafafa;
     margin-bottom: 33px;
+}
+
+th .sort-icon i {
+    font-size: 12px;
+}
+
+th .sort-icon {
+    visibility: hidden;
+    transition: visibility 0.2s, opacity 0.2s;
+    opacity: 0;
+}
+
+th:hover .sort-icon {
+    visibility: visible;
+    opacity: 1;
+}
+
+th {
+    cursor: pointer;
+}
+
+.custom-link {
+    color: black;
+    text-decoration: none;
+    font-size: inherit;
+}
+
+.custom-link:hover {
+    color: #c18134;
+}
+
+a.custom-link,
+a.custom-link:visited,
+a.custom-link:active {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+a.custom-link:hover {
+    color: #c18134 !important;
+}
+
+/* ==============================================
+   Form Input
+   ============================================== */
+
+.custom-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+    border-radius: 0;
+}
+
+.custom-input:focus {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.custom-input:disabled {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.btn-custom {
+    color: #c18134;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.btn-custom:hover {
+    color: #a65c2a;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.form-select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-select:focus {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+}
+
+.form-select:disabled {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+    background-color: transparent;
+}
+
+/* ==============================================
+   Pagination
+   ============================================== */
+
+.pagination .page-link {
+    color: #000;
+    background-color: #f8f9fa;
+    border: 1px solid #000;
+}
+
+.pagination .page-link:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.pagination .active .page-link {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.pagination {
+    margin: 0;
 }

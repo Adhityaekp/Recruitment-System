@@ -36,13 +36,13 @@
 
                     <div class="mb-3">
                         <label for="no_register" class="form-label" style="font-size: 18px">Nomor Registrasi</label>
-                        <input type="text" class="form-control" id="no_register" name="no_register"
+                        <input type="text" class="form-control input-login" id="no_register" name="no_register"
                             placeholder="Masukkan Nomor Registrasi" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="birth_date" class="form-label" style="font-size: 18px">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="birth_date" name="birth_date" required>
+                        <input type="date" class="form-control input-login" id="birth_date" name="birth_date" required>
                     </div>
 
                     <div class="d-grid" style="justify-content: center;">

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
+
     </style>
 </head>
 
@@ -49,8 +50,8 @@
                         </div>
 
                         <div>
-                            <button class="btn btn-masuk" onclick="exportTableToCSV('tabel-data.csv')">Export to
-                                CSV</button>
+                            <button class="btn btn-masuk" onclick="exportTableToCSV('tabel-data.csv')"><i
+                                class="bi bi-download"></i><span class="ms-2">Export</button>
                         </div>
                     </div>
                 </div>
@@ -73,7 +74,7 @@
                             </th>
                             <th class="text-center">Nilai Papikostik</th>
                             <th class="text-center">Nilai LoC</th>
-                            <th>Detail</th>
+                            <th class="text-center">Detail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,11 +83,10 @@
 
 
                 <nav aria-label="Page navigation">
-                    <ul class="pagination" id="pagination"></ul>
-                </nav>
+                    <ul class="pagination justify-content-end" id="pagination"></ul>
+                </nav>                  
             </div>
 
-            <!-- Footer -->
             <footer class="footer text-center py-3 d-flex justify-content-between align-items-center">
                 <p class="mb-0">&copy; 2024 Your Company. All rights reserved.</p>
                 <p class="mb-0">Supported By ILC</p>
@@ -165,7 +165,7 @@
             <td class="text-center"><a href="details_iq.html?value=${encodeURIComponent(item.iqTestValue)}" class="custom-link">${item.iqTestValue}</a></td>
             <td class="text-center"><a href="/detail/papikostik/${item.papikostikValue}" class="custom-link clickable-link">Lihat</a></td>
             <td class="text-center"><a href="/detail/loc/${item.locValue}" class="custom-link clickable-link">Lihat</a></td>
-            <td>
+            <td class="text-center">
                 <a href="/admin/detailtrainee" class="custom-link"><i class="bi bi-three-dots"></i></a>
             </td> 
        `;
@@ -179,7 +179,7 @@
             const pagination = document.getElementById('pagination');
             pagination.innerHTML = '';
 
-            const totalPages = Math.ceil(filteredData.length / rowsPerPage); 
+            const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
             if (currentPage > 1) {
                 const prevButton = createPaginationButton('Previous', () => changePage(currentPage - 1));

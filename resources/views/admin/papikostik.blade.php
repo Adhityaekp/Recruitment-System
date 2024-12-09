@@ -19,7 +19,7 @@
 
             <div class="container my-4 table-container">
                 <h1>Summary Test</h1>
-                <p>Summary Test TKD V</p>
+                <p>Summary Test Papikostik</p>
 
                 <div class="d-flex justify-content-between mb-3">
                     <div class="btn-group" role="group" aria-label="Class Filter">
@@ -63,9 +63,7 @@
                             <th onclick="sortTable(2)">Tanggal <span class="sort-icon"><i class="fa-solid fa-sort"></i>
                             </th>
                             <th>Asal Sekolah</th>
-                            <th class="text-center" onclick="sortTable(4)">
-                                Nilai TKD V <span class="sort-icon"><i class="fa-solid fa-sort"></i></span>
-                            </th>
+                            <th class="text-center">Nilai Papikostik</th>
                             <th class="text-center">Detail</th>
                         </tr>
                     </thead>
@@ -93,7 +91,6 @@
                 date: "2024-11-01",
                 class: "Mechanical",
                 school: "ABC High School",
-                tkdValue: 90,
             },
             {
                 noregistrasi: "OP08911121",
@@ -101,7 +98,6 @@
                 date: "2024-12-01",
                 class: "Operator",
                 school: "ABC High School",
-                tkdValue: 90,
             }
         ];
 
@@ -128,7 +124,7 @@
             <td>${item.noregistrasi}</td>
             <td>${item.date}</td>
             <td>${item.school}</td>
-            <td class="text-center"><a href="details_tkd.html?value=${encodeURIComponent(item.tkdValue)}" class="custom-link">${item.tkdValue}</a></td>
+            <td class="text-center"><a href="/detail/papikostik/${item.papikostikValue}" class="custom-link clickable-link">Lihat</a></td>
             <td class="text-center">
                 <a href="/admin/detailtrainee" class="custom-link"><i class="bi bi-three-dots"></i></a>
             </td>

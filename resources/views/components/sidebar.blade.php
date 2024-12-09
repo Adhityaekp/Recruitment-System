@@ -2,11 +2,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.css">
 </head>
 
-<!-- Sidebar HTML -->
-
 <body>
     <div class="d-flex">
-        <!-- Sidebar -->
         <div class="p-3 sidebar d-flex flex-column" id="sidebar">
             <div class="logo">
                 <img src="/img/logosidebar.png" alt="Logo" style="max-height: 100%;">
@@ -15,8 +12,8 @@
                 <li class="nav-item mb-3">
                     <a class="nav-link menu-nav-link" href="#" id="summaryTest" data-bs-toggle="collapse"
                         data-bs-target="#userMenu" aria-expanded="false" onclick="toggleChevron(this)">
-                        <i class="bi bi-file-earmark-text" style="font-size: 12px;"></i> <span class="ms-2">Summary Test <i
-                                class="bi bi-chevron-right" style="font-size: 12px;"></i></span>
+                        <i class="bi bi-file-earmark-text" style="font-size: 12px;"></i> <span class="ms-2">Summary
+                            Test <i class="bi bi-chevron-right" style="font-size: 12px;"></i></span>
                     </a>
                     <div class="collapse" id="userMenu">
                         <ul class="nav flex-column ms-2">
@@ -31,17 +28,17 @@
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a class="nav-link test-nav-link" href="#" id="iqTest">
+                                <a class="nav-link test-nav-link" href="/admin/iqtest" id="iqTest">
                                     <i class="bi bi-dot"></i> IQ Test</span>
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a class="nav-link test-nav-link" href="#" id="papikostik">
+                                <a class="nav-link test-nav-link" href="/admin/papikostik" id="papikostik">
                                     <i class="bi bi-dot"></i> Papikostik</span>
                                 </a>
                             </li>
                             <li class="nav-item mb-2">
-                                <a class="nav-link test-nav-link" href="#" id="LoC">
+                                <a class="nav-link test-nav-link" href="/admin/loc" id="LoC">
                                     <i class="bi bi-dot"></i> Locus of Control</span>
                                 </a>
                             </li>
@@ -65,11 +62,12 @@
                 </li>
             </ul>
 
-            <!-- Logout Button -->
             <ul class="nav flex-column mt-auto">
                 <li class="nav-item">
-                    <a class="nav-link menu-nav-link" href="/admin/login" id="logout">
-                        <i class="bi bi-box-arrow-right"></i> <span class="ms-2">Logout</span>
+                    <a class="nav-link menu-nav-link" href="/admin/login" id="logout"
+                        style="border: 1px solid #6c757d;" onmouseover="this.style.borderColor='#C18134';"
+                        onmouseout="this.style.borderColor='#6c757d';">
+                        <i class="bi bi-box-arrow-right"></i> <span class="">Logout</span>
                     </a>
                 </li>
             </ul>
@@ -77,13 +75,11 @@
     </div>
 
 
-    <!-- Sidebar JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sidebarLinks = document.querySelectorAll('.nav-link');
 
             sidebarLinks.forEach(link => {
-                // Menandai link yang sesuai dengan URL saat ini
                 if (window.location.pathname === link.getAttribute('href')) {
                     link.classList.add('active');
                 }
