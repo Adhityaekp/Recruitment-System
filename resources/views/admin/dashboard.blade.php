@@ -33,6 +33,12 @@
                             onclick="filterClass('Operator')">Operator</button>
                         <button type="button" class="btn btn-filter" onclick="filterClass('Spesial')">Spesial</button>
                     </div>
+
+                    <div class="d-flex align-items-center">
+                        <button class="btn button-back" data-bs-toggle="modal" data-bs-target="#addTraineeModal">
+                            <i class="bi bi-arrow-repeat"></i><span class="ms-2">Reset Data</span>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="filter-container">
@@ -51,7 +57,7 @@
 
                         <div>
                             <button class="btn btn-masuk" onclick="exportTableToCSV('tabel-data.csv')"><i
-                                class="bi bi-download"></i><span class="ms-2">Export</button>
+                                    class="bi bi-download"></i><span class="ms-2">Export</button>
                         </div>
                     </div>
                 </div>
@@ -84,7 +90,7 @@
 
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-end" id="pagination"></ul>
-                </nav>                  
+                </nav>
             </div>
 
             <footer class="footer text-center py-3 d-flex justify-content-between align-items-center">

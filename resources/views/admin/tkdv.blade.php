@@ -30,6 +30,12 @@
                             onclick="filterClass('Operator')">Operator</button>
                         <button type="button" class="btn btn-filter" onclick="filterClass('Spesial')">Spesial</button>
                     </div>
+
+                    <div class="d-flex align-items-center">
+                        <button class="btn button-back" data-bs-toggle="modal" data-bs-target="#addTraineeModal">
+                            <i class="bi bi-arrow-repeat"></i><span class="ms-2">Reset Data</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Filter Date Range -->
