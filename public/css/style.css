@@ -71,6 +71,25 @@ input.input-login:focus {
     object-fit: cover;
 }
 
+@media (max-width: 576px) {
+    .profile-container {
+        margin-top: 10px;
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    .trainee-info h5 {
+        font-size: 18px;
+    }
+
+    .trainee-info p {
+        font-size: 14px;
+    }
+}
+
 /* ==============================================
    Check Kamera
    ============================================== */

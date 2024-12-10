@@ -23,31 +23,30 @@
         <div class="text-center">
             <h1 class="mb-4" style="font-size: 48px;">Ketentuan Sub Test 4</h1>
             <div style="max-width: 1000px;">
-                <p class="mb-4" style="text-align: center; font-size: 24px; font-weight: 500; color:rgba(0, 0, 0, 0.5)">
-                    Sebelum memulai, harap baca ketentuan berikut terkait pelaksanaan Sub Test 1.</p>
-                <p class="mb-4" style="text-align: left; color:rgba(0, 0, 0, 0.5); font-size: 20px;">
+                <p class="mb-4"
+                    style="text-align: center; font-size: 24px; font-weight: 500; color:rgba(0, 0, 0, 0.5)">
+                    Sebelum memulai, harap baca ketentuan berikut terkait pelaksanaan Sub Test 4.</p>
+                <p class="mb-4" style="text-align: left; color: rgba(0, 0, 0, 0.6); font-size: 20px;">
                     <span
                         style="display: block; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-                        1. Pastikan Anda berada di tempat yang tenang dan bebas gangguan selama mengerjakan psikotest
-                        ini.
+                        1. Pastikan Anda berada di tempat yang tenang dan tidak terganggu selama mengerjakan tes ini.
                     </span>
                     <span
                         style="display: block; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-                        2. Anda tidak diperkenankan untuk menggunakan alat bantu atau melakukan kecurangan dalam bentuk
-                        apapun.
+                        2. Tes ini harus dikerjakan secara mandiri tanpa menggunakan alat bantu apa pun.
                     </span>
                     <span
                         style="display: block; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-                        3. Hasil dari sub test ini akan digunakan sebagai bagian dari evaluasi untuk seleksi pelatihan
-                        Mechanical Class.
+                        3. Soal pada sub tes ini mengukur kemampuan Anda dalam memahami hubungan kompleks antar simbol
+                        dan elemen.
                     </span>
                     <span
                         style="display: block; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-                        4. Setelah memulai, Anda tidak dapat menghentikan atau mengulang sub test.
+                        4. Setelah memulai, Anda tidak dapat menghentikan atau mengulang tes ini.
                     </span>
                     <span
                         style="display: block; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
-                        5. Dengan memulai sub test ini, Anda menyetujui syarat dan ketentuan yang berlaku.
+                        5. Dengan melanjutkan tes ini, Anda dianggap menyetujui semua syarat dan ketentuan yang berlaku.
                     </span>
                 </p>
                 <button type="button" class="btn btn-masuk px-5 py-2" data-bs-toggle="modal" style="margin-top: 20px"
@@ -58,17 +57,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
+    </script>
 
     <script>
         navigator.mediaDevices.getUserMedia({
-            video: true
-        })
-            .then(function (stream) {
+                video: true
+            })
+            .then(function(stream) {
                 const videoElement = document.getElementById('webcam');
                 videoElement.srcObject = stream;
             })
-            .catch(function (error) {
+            .catch(function(error) {
                 console.error('Error accessing webcam: ', error);
             });
     </script>

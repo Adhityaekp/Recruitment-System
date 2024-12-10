@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
+        .accordion-button {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #801114;
+            color: #fafafa;
+        }
+        
+        .list-group-item a:hover{
+            color: #C18134;
+        }
     </style>
 </head>
 
@@ -73,7 +85,7 @@
                                                 <strong>Kunci Jawaban: </strong> A
                                             </div>
 
-                                            <button class="btn btn-warning mt-2" data-bs-toggle="modal"
+                                            <button class="btn btn-masuk mt-2" data-bs-toggle="modal"
                                                 data-bs-target="#editSoalModal1">Edit Soal</button>
                                         </div>
                                     </li>
@@ -89,22 +101,22 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <label for="editSoal1">Soal:</label>
-                                                    <input type="file" id="editSoal1" class="form-control">
+                                                    <input type="file" id="editSoal1" class="form-control mb-3">
 
                                                     <label for="editJawaban1">Jawaban A:</label>
-                                                    <input type="file" id="editJawaban1" class="form-control">
+                                                    <input type="file" id="editJawaban1" class="form-control mb-3">
 
                                                     <label for="editJawaban2">Jawaban B:</label>
-                                                    <input type="file" id="editJawaban2" class="form-control">
+                                                    <input type="file" id="editJawaban2" class="form-control mb-3">
 
                                                     <label for="editJawaban3">Jawaban C:</label>
-                                                    <input type="file" id="editJawaban3" class="form-control">
+                                                    <input type="file" id="editJawaban3" class="form-control mb-3">
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
+                                                    <button type="button" class="btn button-back"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary"
-                                                        onclick="saveEdit(1)">Save Changes</button>
+                                                    <button type="button" class="btn btn-masuk"
+                                                        onclick="saveEdit(1)">Simpan Perubahan</button>
                                                 </div>
                                             </div>
                                         </div>

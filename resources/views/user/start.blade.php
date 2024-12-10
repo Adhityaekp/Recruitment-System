@@ -41,9 +41,16 @@
                     <div class="modal-body" style="text-align: left;">
                         <p>Harap membaca ketentuan tes berikut:</p>
                         <ul>
-                            <li>Pastikan koneksi internet Anda stabil.</li>
-                            <li>Selama tes, tidak diperbolehkan membuka tab baru.</li>
-                            <li>Gunakan perangkat dengan kamera aktif untuk tes ini.</li>
+                            <li>Pastikan koneksi internet Anda stabil selama pelaksanaan tes.</li>
+                            <li>Peserta wajib menggunakan perangkat dengan kamera aktif. Kamera harus tetap menyala
+                                selama tes berlangsung.</li>
+                            <li>Pastikan lingkungan Anda tenang dan bebas gangguan agar dapat berkonsentrasi dengan
+                                baik.</li>
+                            <li>Tidak diperbolehkan membuka tab baru, aplikasi lain, atau menggunakan perangkat tambahan
+                                selama tes berlangsung.</li>
+                            <li>Tes ini bersifat individual. Bantuan dari pihak lain dilarang keras.</li>
+                            <li>Periksa kembali jadwal tes Anda. Peserta yang terlambat tidak diperkenankan mengikuti
+                                tes.</li>
                         </ul>
                         <div class="form-check mt-4">
                             <input class="form-check-input" type="checkbox" id="acceptTerms"

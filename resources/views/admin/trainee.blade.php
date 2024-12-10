@@ -30,11 +30,9 @@
 </head>
 
 <body>
-    <!-- Main Content -->
     <div class="d-flex" style="min-height: 100vh;">
-        <x-sidebar /> <!-- Sidebar component -->
+        <x-sidebar />
 
-        <!-- Main Content -->
         <div class="flex-grow-1 main-content">
             <x-navbar userName="Admin" />
 
@@ -42,7 +40,6 @@
                 <h1>Trainee</h1>
                 <p>Trainee List</p>
 
-                <!-- Class Filter Menu (like navbar) -->
                 <div class="d-flex justify-content-between mb-3">
                     <div class="btn-group" role="group" aria-label="Class Filter">
                         <button type="button" class="btn btn-filter" onclick="filterClass('all')">All Classes</button>
@@ -64,6 +61,14 @@
                             <button class="btn btn-masuk ms-2" onclick="exportTableToCSV('tabel-data.csv')">
                                 <i class="bi bi-download"></i><span class="ms-2">Export</span>
                             </button>
+
+                            <button class="btn btn-masuk ms-2"
+                                onclick="document.getElementById('importFileInput').click()">
+                                <i class="bi bi-upload"></i><span class="ms-2">Import</span>
+                            </button>
+
+                            <input type="file" id="importFileInput" accept=".csv" style="display: none;"
+                                onchange="importCSVFile(this)">
                         </div>
 
                         <div class="search-container position-relative">
@@ -94,28 +99,24 @@
                                         </select>
                                     </div>
 
-                                    <!-- No Registrasi (Otomatis) -->
                                     <div class="mb-3">
                                         <label for="noRegistrasi" class="form-label">No Registrasi</label>
                                         <input type="text" class="form-control custom-input" id="noRegistrasi"
                                             readonly>
                                     </div>
 
-                                    <!-- Nama Trainee -->
                                     <div class="mb-3">
                                         <label for="traineeName" class="form-label">Nama Trainee</label>
                                         <input type="text" class="form-control custom-input" id="traineeName"
                                             required>
                                     </div>
 
-                                    <!-- Tanggal Lahir -->
                                     <div class="mb-3">
                                         <label for="traineeDate" class="form-label">Tanggal Lahir</label>
                                         <input type="date" class="form-control custom-input" id="traineeDate"
                                             required>
                                     </div>
 
-                                    <!-- Asal Sekolah -->
                                     <div class="mb-3">
                                         <label for="traineeSchool" class="form-label">Asal Sekolah</label>
                                         <input type="text" class="form-control custom-input" id="traineeSchool"
@@ -126,14 +127,14 @@
                             <div class="modal-footer" style="justify-content: center;">
                                 <button type="button" class="btn button-back" style="width: 150px;"
                                     data-bs-dismiss="modal">Kembali</button>
-                                <button type="button" class="btn btn-masuk" style="width: 150px;" onclick="addTrainee()">Tambah
+                                <button type="button" class="btn btn-masuk" style="width: 150px;"
+                                    onclick="addTrainee()">Tambah
                                     Trainee</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Data Table -->
                 <table class="table" id="dataTable">
                     <thead>
                         <tr>
@@ -155,7 +156,6 @@
                 </nav>
             </div>
 
-            <!-- Footer -->
             <footer class="footer text-center py-3 d-flex justify-content-between align-items-center">
                 <p class="mb-0">&copy; 2024 Your Company. All rights reserved.</p>
                 <p class="mb-0">Supported By ILC</p>
@@ -174,19 +174,17 @@
         }];
 
 
-        let currentPage = 1; // Initial page
-        const rowsPerPage = 10; // Number of rows per page
+        let currentPage = 1;
+        const rowsPerPage = 10;
 
         function renderTable(filteredData) {
             const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-            tableBody.innerHTML = ''; // Clear previous rows
+            tableBody.innerHTML = '';
 
-            // Calculate start and end index for pagination
             const startIndex = (currentPage - 1) * rowsPerPage;
             const endIndex = startIndex + rowsPerPage;
             const currentPageData = filteredData.slice(startIndex, endIndex);
 
-            // Render the filtered data for the current page
             currentPageData.forEach(item => {
                 const row = tableBody.insertRow();
                 row.innerHTML = `
@@ -203,32 +201,28 @@
             </td>
         `;
             });
-            // Update pagination
             updatePagination(filteredData);
         }
 
         function updatePagination(filteredData) {
             const pagination = document.getElementById('pagination');
-            pagination.innerHTML = ''; // Clear previous pagination
+            pagination.innerHTML = '';
 
-            const totalPages = Math.ceil(filteredData.length / rowsPerPage); // Calculate total pages
+            const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
-            // Create previous page button
             if (currentPage > 1) {
                 const prevButton = createPaginationButton('Previous', () => changePage(currentPage - 1));
                 pagination.appendChild(prevButton);
             }
 
-            // Create page number buttons
             for (let i = 1; i <= totalPages; i++) {
                 const pageButton = createPaginationButton(i, () => changePage(i));
                 if (i === currentPage) {
-                    pageButton.classList.add('active'); // Highlight the current page
+                    pageButton.classList.add('active');
                 }
                 pagination.appendChild(pageButton);
             }
 
-            // Create next page button
             if (currentPage < totalPages) {
                 const nextButton = createPaginationButton('Next', () => changePage(currentPage + 1));
                 pagination.appendChild(nextButton);
@@ -243,55 +237,48 @@
             link.href = '#';
             link.textContent = text;
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default anchor behavior
+                e.preventDefault();
                 onClick();
             });
             button.appendChild(link);
             return button;
         }
 
-        // Function to change the current page and re-render the table
         function changePage(page) {
             currentPage = page;
-            renderTable(data); // Re-render the table with the current page data
+            renderTable(data);
         }
 
 
         function filterClass(className) {
             const buttons = document.querySelectorAll('.btn-filter');
 
-            // Hapus kelas 'active' dari semua tombol
             buttons.forEach(button => {
                 button.classList.remove('active');
             });
 
-            // Menambahkan kelas 'active' pada tombol yang dipilih
             if (className !== 'all') {
                 const selectedButton = Array.from(buttons).find(button => button.textContent === className);
                 if (selectedButton) {
                     selectedButton.classList.add('active');
                 }
             } else {
-                // Jika 'All Classes' dipilih, tambahkan aktif pada tombol 'All Classes'
                 const selectedButton = Array.from(buttons).find(button => button.textContent === 'All Classes');
                 if (selectedButton) {
                     selectedButton.classList.add('active');
                 }
             }
 
-            // Lakukan penyaringan data berdasarkan kelas
             const filteredData = className === 'all' ? data : data.filter(item => item.class === className);
             renderTable(filteredData);
         }
 
-        // Initially render table with all data
         renderTable(data);
 
-        // Fungsi untuk mengekspor tabel ke CSV
         function generateNoRegistrasi() {
             const traineeClass = document.getElementById('traineeClass').value;
             if (traineeClass) {
-                const randomNumber = Math.floor(1000000 + Math.random() * 9000000); // Random 7-digit number
+                const randomNumber = Math.floor(1000000 + Math.random() * 9000000);
                 const noRegistrasi = `${traineeClass}${randomNumber}`;
                 document.getElementById('noRegistrasi').value = noRegistrasi;
             } else {
@@ -300,20 +287,17 @@
         }
 
         function addTrainee() {
-            // Ambil nilai dari input form
             const noRegistrasi = document.getElementById('noRegistrasi').value.trim();
             const traineeName = document.getElementById('traineeName').value.trim();
             const traineeDate = document.getElementById('traineeDate').value;
             const traineeSchool = document.getElementById('traineeSchool').value.trim();
             const traineeClass = document.getElementById('traineeClass').value;
 
-            // Validasi sederhana
             if (!traineeClass || !noRegistrasi || !traineeName || !traineeDate || !traineeSchool) {
                 alert('Harap isi semua field!');
                 return;
             }
 
-            // Masukkan data ke dalam tabel
             const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
             const row = tableBody.insertRow();
 
@@ -327,26 +311,21 @@
         </td>
     `;
 
-            // Reset form dan tutup modal
             document.getElementById('addTraineeForm').reset();
             const modal = bootstrap.Modal.getInstance(document.getElementById('addTraineeModal'));
             modal.hide();
         }
 
         function deleteRow(button) {
-            // Hapus baris dari tabel
             const row = button.parentElement.parentElement;
             row.remove();
         }
 
         function deleteRow(button) {
-            // Hapus baris dari tabel
             const row = button.parentElement.parentElement;
             row.remove();
         }
 
-
-        // Function to export table to CSV
         function exportTableToCSV(filename) {
             const table = document.getElementById("traineeTable");
             const rows = Array.from(table.rows);
@@ -364,18 +343,15 @@
             hiddenElement.click();
         }
 
-        // Function to filter table based on search input
         function filterTable() {
             const filter = document.getElementById('searchInput').value.toLowerCase();
 
-            // Filter data array berdasarkan input
             const filteredData = data.filter(item =>
                 item.name.toLowerCase().includes(filter) ||
                 item.noregistrasi.toLowerCase().includes(filter) ||
                 item.school.toLowerCase().includes(filter)
             );
 
-            // Render tabel dengan data yang sudah difilter
             renderTable(filteredData);
         }
 
@@ -384,10 +360,9 @@
 
         function sortTable(columnIndex) {
             const table = document.getElementById('dataTable');
-            const rows = Array.from(table.rows).slice(1); // Lewati baris header
-            const isDateColumn = columnIndex === 1; // Kolom tanggal
+            const rows = Array.from(table.rows).slice(1);
+            const isDateColumn = columnIndex === 1;
 
-            // Abaikan kolom tanpa dukungan pengurutan
             const header = table.rows[0].cells[columnIndex];
             if (!header.querySelector('i')) return;
 
@@ -403,40 +378,51 @@
                 return sortDirection ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
             });
 
-            // Perbarui arah pengurutan
             sortDirection = !sortDirection;
 
-            // Tambahkan ulang baris dalam urutan baru
             const tbody = table.tBodies[0];
             rows.forEach(row => tbody.appendChild(row));
 
-            // Perbarui ikon
             updateSortIcons(columnIndex);
         }
 
         function updateSortIcons(columnIndex) {
             const headers = document.querySelectorAll('#dataTable th');
             headers.forEach((header, index) => {
-                const icon = header.querySelector('i'); // Cari elemen ikon dalam header
+                const icon = header.querySelector('i');
 
-                if (icon) { // Pastikan hanya header dengan ikon yang diperbarui
+                if (icon) {
                     if (index === columnIndex) {
-                        // Ubah ikon pada kolom yang sedang diurutkan
                         icon.classList.remove('fa-sort');
                         if (sortDirection) {
                             icon.classList.remove('fa-caret-down');
-                            icon.classList.add('fa-caret-up'); // Urutan ascending
+                            icon.classList.add('fa-caret-up');
                         } else {
                             icon.classList.remove('fa-caret-up');
-                            icon.classList.add('fa-caret-down'); // Urutan descending
+                            icon.classList.add('fa-caret-down');
                         }
                     } else {
-                        // Reset ikon pada kolom lain
                         icon.classList.remove('fa-caret-up', 'fa-caret-down');
                         icon.classList.add('fa-sort');
                     }
                 }
             });
+        }
+
+        function importCSVFile(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const csvData = e.target.result;
+                    // Logika untuk memproses data CSV
+                    console.log(csvData); // Ganti dengan logika parsing atau upload data
+                    alert('Data CSV berhasil diunggah!');
+                };
+                reader.readAsText(file);
+            } else {
+                alert('Tidak ada file yang dipilih!');
+            }
         }
     </script>
 
